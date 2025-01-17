@@ -1,0 +1,39 @@
+.app-container {
+  background-image: url('images/MHD-IMG.jpg');
+  background-size: 100%; /* Taille initiale */
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  animation: zoomEffect 5s infinite alternate; /* Animation de zoom */
+}
+
+@keyframes zoomEffect {
+  0% {
+    background-size: 100%; /* Début sans zoom */
+  }
+  100% {
+    background-size: 110%; /* Fin avec zoom */
+  }
+}
+
+
+.app-container > * {
+  position: relative;
+  z-index: 2; /* Le contenu reste au-dessus de la couche sombre */
+}
+
+
+
+.menu-links {
+  display: flex;
+  justify-content: flex-end; /* Aligne les éléments à droite */
+  gap: 100px; /* Ajoute un espacement entre les liens */
+}
+
+.menu-links a {
+  text-align: center; /* Centrer le texte dans chaque bouton */
+}
+
+
+

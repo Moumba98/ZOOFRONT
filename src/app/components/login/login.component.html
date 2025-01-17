@@ -1,0 +1,87 @@
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-lg" style="width: 25rem;">
+    <h2 class="text-center mb-4">Connexion Administrateur</h2>
+    <form (ngSubmit)="onSubmit()">
+      <!-- Champ: Nom d'utilisateur -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Nom d'utilisateur</label>
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          class="form-control"
+          required
+          placeholder="Entrez votre nom d'utilisateur"
+        />
+      </div>
+
+      <!-- Champ: Nom -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Nom</label>
+        <input
+          type="text"
+          id="name"
+          [(ngModel)]="name"
+          name="name"
+          class="form-control"
+          required
+          placeholder="Entrez votre nom"
+        />
+      </div>
+
+      <!-- Champ: Prénom -->
+      <div class="mb-3">
+        <label for="first_name" class="form-label">Prénom</label>
+        <input
+          type="text"
+          id="first_name"
+          [(ngModel)]="first_name"
+          name="first_name"
+          class="form-control"
+          required
+          placeholder="Entrez votre prénom"
+        />
+      </div>
+
+      <!-- Champ: Role ID -->
+      <div class="mb-3">
+        <label for="role_id" class="form-label">Rôle</label>
+        <select
+          id="role_id"
+          [(ngModel)]="role_id"
+          name="role_id"
+          class="form-select"
+          required
+        >
+          <option value="" disabled selected>Choisissez un rôle</option>
+          <option value="1">Administrateur</option>
+          <option value="2">Utilisateur</option>
+          <option value="3">Gestionnaire</option>
+        </select>
+      </div>
+
+      <!-- Champ: Mot de passe -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control"
+          required
+          placeholder="Entrez votre mot de passe"
+        />
+      </div>
+
+      <!-- Bouton de soumission -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">
+          Se connecter
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

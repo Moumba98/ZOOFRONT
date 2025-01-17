@@ -1,0 +1,122 @@
+<div class="app-container d-flex flex-column min-vh-100">
+
+  <!-- Navbar pour l'accès au CRUD, visible après connexion -->
+  <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="isAuthenticated()">
+    <a href="#" class="navbar-brand">ZOO Arcadi</a>
+    <div class="navbar-nav mr-auto">
+      <!-- Dropdown Users -->
+      <li class="nav-item dropdown">
+        <a routerLink="user" class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" user="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Users
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownUser">
+          <a routerLink="add-user" class="dropdown-item" href="#">Ajouter User</a>
+        </div>
+      </li>
+
+      <!-- Dropdown Roles -->
+      <li class="nav-item dropdown">
+        <a routerLink="role" class="nav-link dropdown-toggle" href="#" id="navbarDropdownRole" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Role
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownRole">
+          <a routerLink="add-role" class="dropdown-item" href="#">Ajouter Role</a>
+        </div>
+      </li>
+
+      <!-- Dropdown Rapport Vétérinaire -->
+      <li class="nav-item dropdown">
+        <a routerLink="Veterinary_raport" class="nav-link dropdown-toggle" href="#" id="navbarDropdownRapport" veterinary_raport="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Rapport Vétérinaire
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownRapport">
+          <a routerLink="add-raport" class="dropdown-item" href="#">Ajouter Rapport</a>
+        </div>
+      </li>
+
+      <!-- Dropdown Animal -->
+      <li class="nav-item dropdown">
+        <a routerLink="animal" class="nav-link dropdown-toggle" href="#" id="navbarDropdownAnimal" animal="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Animal
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownAnimal">
+          <a routerLink="add-animal" class="dropdown-item" href="#">Ajouter Animal</a>
+        </div>
+      </li>
+
+      <!-- Dropdown Race -->
+      <li class="nav-item dropdown">
+        <a routerLink="race" class="nav-link dropdown-toggle" href="#" id="navbarDropdownRace" race="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Race
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownRace">
+          <a routerLink="add-race" class="dropdown-item" href="#">Ajouter Race</a>
+        </div>
+      </li>
+
+      <!-- Dropdown Habitat -->
+      <li class="nav-item dropdown">
+        <a routerLink="habitat" class="nav-link dropdown-toggle" href="#" id="navbarDropdownHabitat" habitat="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Habitat
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownHabitat">
+          <a routerLink="add-habitat" class="dropdown-item" href="#">Ajouter Habitat</a>
+        </div>
+      </li>
+
+      <!-- Dropdown Notice -->
+      <li class="nav-item dropdown">
+        <a routerLink="notice" class="nav-link dropdown-toggle" href="#" id="navbarDropdownNotice" notice="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Notice
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownNotice">
+          <a routerLink="add-notice" class="dropdown-item" href="#">Ajouter Notice</a>
+        </div>
+      </li>
+
+      <!-- Dropdown Picture -->
+      <li class="nav-item dropdown">
+        <a routerLink="picture" class="nav-link dropdown-toggle" href="#" id="navbarDropdownPicture" picture="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Picture
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownPicture">
+          <a routerLink="add-picture" class="dropdown-item" href="#">Ajouter Picture</a>
+        </div>
+      </li>
+
+      <!-- Dropdown Service -->
+      <li class="nav-item dropdown">
+        <a routerLink="service" class="nav-link dropdown-toggle" href="#" id="navbarDropdownService" service="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Service
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownService">
+          <a routerLink="add-service" class="dropdown-item" href="#">Ajouter Service</a>
+        </div>
+      </li>
+
+      <!-- Logout -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="logout()">Logout</a>
+      </li>
+    </div>
+  </nav>
+
+  <!-- Page d'accueil vide, avec juste le lien de connexion visible
+  <div>
+    <img src="votre-logo.png" alt="Logo" class="logo">
+    <div class="menu-links" >
+      <a href="#" routerLink="/lien-service" class="btn btn-primary mx-2">Nos services</a>
+      <a href="#" routerLink="/lien-animaux" class="btn btn-primary mx-2">Nos animaux</a>
+      <a href="#" routerLink="/lien-avis" class="btn btn-primary mx-2">Votre avis</a>
+      <a href="#" routerLink="/lien-contact" class="btn btn-primary">Nous contacter</a>
+      <a href="#" routerLink="/login" class="btn btn-primary">connexion</a>
+    </div>
+  </div> -->
+
+
+
+  <!-- Route de contenu dynamique -->
+  <div class="container mt-3 flex-grow-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

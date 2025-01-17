@@ -1,0 +1,30 @@
+.text-container {
+  background-color: rgba(0, 0, 0, 0.7); /* Fond sombre */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 20px; /* Espacement interne */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+    width: 50%; /* Réduit la largeur du formulaire à 50% de la page */
+    max-width: 600px; /* Limite la largeur à 600px même sur écrans larges */
+    margin: 50px auto; /* Centré horizontalement et un espace en haut */
+    text-align: center; /* Centre le texte dans le formulaire */
+    color: white;
+}
+input, textarea {
+  background-color: rgba(0, 0, 0, 0.7); /* Fond sombre */
+  color: white; /* Texte blanc */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Bordure légèrement blanche */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px; /* Espacement interne */
+  font-size: 16px; /* Taille de texte */
+}
+
+input:focus, textarea:focus {
+  background-color: rgba(0, 0, 0, 0.7); /* Conserve le fond sombre au focus */
+  color: white; /* Texte toujours blanc */
+  border: 1px solid rgba(255, 255, 255, 0.8); /* Bordure un peu plus visible */
+  outline: none; /* Retire le contour par défaut du navigateur */
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5); /* Couleur des placeholders */
+}
