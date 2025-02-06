@@ -1,0 +1,24 @@
+// Adapter toutes les cartes au mobile
+.card {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+// Ajuster les images pour le responsive
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Ajouter un espacement global pour tous les composants
+.container {
+  padding: 15px;
+}
+
+// Cacher un élément sur mobile (max 768px)
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,64 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by title"
+        [(ngModel)]="title"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchTitle()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h4>Contacts List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let contact of contact; let i = index"
+        [class.active]="i === currentIndex"
+        (click)="setActiveContact(contact, i)"
+      >
+        {{ contact.nom }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllContacts()">
+      Remove All
+    </button>
+  </div>
+
+  <div class="col-md-6">
+    <div *ngIf="currentContact">
+      <h4>Contact Details</h4>
+      <div>
+        <label><strong>Name:</strong></label>
+        {{ currentContact.nom }}
+      </div>
+      <div>
+        <label><strong>Email:</strong></label>
+        {{ currentContact.email }}
+      </div>
+      <div>
+        <label><strong>Subject:</strong></label>
+        {{ currentContact.sujet }}
+      </div>
+      <div>
+        <label><strong>Message:</strong></label>
+        {{ currentContact.message }}
+      </div>
+    </div>
+    <div *ngIf="!currentContact">
+      <p>Please select a contact to view details.</p>
+    </div>
+  </div>
+</div>

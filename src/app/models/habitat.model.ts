@@ -3,4 +3,5 @@ export class Habitat {
   name?: string;
   description?: string;
   habitat_comment?: string;
+  image?: any;
 }

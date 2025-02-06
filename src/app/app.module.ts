@@ -38,6 +38,9 @@ import { LienServiceComponent } from './lien-service/lien-service.component';
 import { LienAvisComponent } from './lien-avis/lien-avis.component';
 import { LienAnimauxComponent } from './lien-animaux/lien-animaux.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { AddContactComponent } from './add-contact/add-contact.component';
 
 
 
@@ -82,6 +85,9 @@ import { AccueilComponent } from './accueil/accueil.component';
     LienAvisComponent,
     LienAnimauxComponent,
     AccueilComponent,
+    ContactListComponent,
+    ContactDetailsComponent,
+    AddContactComponent,
 
 
 

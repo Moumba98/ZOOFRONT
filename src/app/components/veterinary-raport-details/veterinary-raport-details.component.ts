@@ -1,29 +1,28 @@
-import { Component,Input,OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Tutorial } from '../../models/tutorial.model';
 import { VeterinaryRaportService } from '../../services/veterinary-raport.service';
 import { Veterinary_raport } from '../../models/veterinary_raport.model';
 
 @Component({
   selector: 'app-veterinary-raport-details',
   templateUrl: './veterinary-raport-details.component.html',
-  styleUrl: './veterinary-raport-details.component.css'
+  styleUrls: ['./veterinary-raport-details.component.css']
 })
 export class VeterinaryRaportDetailsComponent implements OnInit {
 
   @Input() viewMode = false;
 
-  @Input() currentVeterinary_raport: Veterinary_raport= {
+  @Input() currentVeterinary_raport: Veterinary_raport = {
     date: '',
     detail: '',
-    user_id : 1,
+    user_id: 1,
     animal_id: 1
   };
 
   message = '';
 
   constructor(
-    private VeterinaryRaportService: VeterinaryRaportService,
+    private veterinaryRaportService: VeterinaryRaportService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -31,57 +30,46 @@ export class VeterinaryRaportDetailsComponent implements OnInit {
   ngOnInit(): void {
     if (!this.viewMode) {
       this.message = '';
-      const id = this.route.snapshot.paramMap.get('veterinary_raport_id');
-      if(id){
-        this.getVeterinary_raport(id);
+      const id = this.route.snapshot.paramMap.get('veterinary_report_id');
+      console.log("ID récupéré :", id); // Vérification
+      if (id) {
+        this.getVeterinaryRaport(id);
       }
     }
   }
 
-  
-
-  getVeterinary_raport(id: string): void {
-    console.log("welcomeeeeeeeeeeeee");
-    this.VeterinaryRaportService.get(id).subscribe({
+  getVeterinaryRaport(id: string): void {
+    console.log("Requête API en cours pour l'ID :", id);
+    this.veterinaryRaportService.get(id).subscribe({
       next: (data) => {
+        console.log("Données reçues :", data);
         this.currentVeterinary_raport = data;
-        // this.currentUser = Array.isArray(data) ? data[0] : data;
-        //console.log("getUser " + this.currentUser.username);
       },
-      error: (e) => console.error(e)
+      error: (e) => console.error("Erreur API :", e)
     });
   }
 
-  log(value : any) : void{
-    console.log("In myLog" + value);
-  }
-
-  updateVeterinary_raport(): void {
+  updateVeterinaryRaport(): void {
     this.message = '';
-
-
-    console.log(" this.currentVeterinary_raport",  this.currentVeterinary_raport)
-    this.VeterinaryRaportService
-      .update(this.currentVeterinary_raport.veterinary_raport_id, this.currentVeterinary_raport)
+    console.log("Mise à jour avec :", this.currentVeterinary_raport);
+    this.veterinaryRaportService
+      .update(this.currentVeterinary_raport.veterinary_report_id, this.currentVeterinary_raport)
       .subscribe({
         next: (res) => {
-          console.log(res);
-          this.message = res.message
-            ? res.message
-            : 'This veterinary-raport was updated successfully!';
+          console.log("Réponse mise à jour :", res);
+          this.message = res.message ? res.message : 'Mise à jour réussie !';
         },
-        error: (e) => console.error(e)
+        error: (e) => console.error("Erreur mise à jour :", e)
       });
   }
 
-  deleteVeterinary_raport(): void {
-    this.VeterinaryRaportService.delete(this.currentVeterinary_raport.veterinary_raport_id).subscribe({
+  deleteVeterinaryRaport(): void {
+    this.veterinaryRaportService.delete(this.currentVeterinary_raport.veterinary_report_id).subscribe({
       next: (res) => {
-        console.log(res);
-        this.router.navigate(['/veterinary_raport_id']);
+        console.log("Supprimé :", res);
+        this.router.navigate(['/Veterinary_raport']);
       },
-      error: (e) => console.error(e)
+      error: (e) => console.error("Erreur suppression :", e)
     });
   }
-
 }

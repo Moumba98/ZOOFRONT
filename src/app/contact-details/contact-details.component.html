@@ -1,0 +1,102 @@
+
+<div *ngIf="viewMode">
+  <div *ngIf="currentContact?.contact_id; else noContact">
+    <h4>Contact</h4>
+    <div>
+      <label><strong>Name:</strong></label> {{ currentContact.nom }}
+    </div>
+    <div>
+      <label><strong>Email:</strong></label> {{ currentContact.email }}
+    </div>
+    <div>
+      <label><strong>Subject:</strong></label> {{ currentContact.sujet }}
+    </div>
+    <div>
+      <label><strong>Message:</strong></label> {{ currentContact.message }}
+    </div>
+
+    <!-- Lien Edit -->
+    <a
+      class="badge badge-warning"
+      [routerLink]="['/contacts', currentContact.contact_id]"
+    >
+      Edit
+    </a>
+  </div>
+
+  <!-- Message si aucun contact sélectionné -->
+  <ng-template #noContact>
+    <p>Please click on a Contact...</p>
+  </ng-template>
+</div>
+
+<!-- Mode édition -->
+<div *ngIf="!viewMode">
+  <div *ngIf="currentContact?.contact_id; else cannotAccess">
+    <div class="edit-form">
+      <h4>Contact</h4>
+      <form>
+        <div class="form-group">
+          <label for="nom">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nom"
+            [(ngModel)]="currentContact.nom"
+            name="nom"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="currentContact.email"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="sujet">Subject</label>
+          <input
+            type="text"
+            class="form-control"
+            id="sujet"
+            [(ngModel)]="currentContact.sujet"
+            name="sujet"
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            class="form-control"
+            id="message"
+            [(ngModel)]="currentContact.message"
+            name="message"
+          ></textarea>
+        </div>
+      </form>
+
+      <button
+        class="badge badge-danger mr-2"
+        (click)="deleteContact()"
+      >
+        Delete
+      </button>
+
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateContact()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  </div>
+
+  <!-- Message si aucun contact disponible -->
+  <ng-template #cannotAccess>
+    <p>Cannot access this Contact...</p>
+  </ng-template>
+</div>

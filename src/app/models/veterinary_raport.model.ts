@@ -1,5 +1,5 @@
 export class Veterinary_raport {
-  veterinary_raport_id?: any;
+  veterinary_report_id?: any;
   date?: string;
   detail?: string;
   user_id?: number;

@@ -1,1 +1,53 @@
-<p>lien-animaux works!</p>
+<!--<h2>Liste des Animaux</h2>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let animal of animaux" class="col-md-3 mb-4">
+      <div class="animal-card">
+        <div class="animal-image" [ngStyle]="{'background-image': 'url(' + animal.image + ')'}"></div>
+        <div class="animal-info">
+          <h3 class="animal-name">{{ animal.prenom }}</h3>
+          <p class="animal-race">Race: {{ animal.race }}</p>
+          <p class="animal-etat">État: {{ animal.etat }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<h2 class="text-center my-4">Liste des Animaux</h2>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let animal of animaux" class="col-md-4 mb-4">
+      <div class="card">
+        <div class="animal-image" [ngStyle]="{'background-image': 'url(' + animal.image + ')'}"></div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ animal.prenom }}</h5>
+          <p class="card-text"><strong>Race:</strong> {{ animal.race }}</p>
+          <p class="card-text"><strong>État:</strong> {{ animal.etat }}</p>
+          <button *ngIf="isLoggedIn"  (click)="editEtat(animal)" class="btn btn-primary">Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modale pour modifier l'état -->
+<div *ngIf="showModal" class="modal fade show d-block" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modifier l'état de {{ selectedAnimal?.prenom }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <input [(ngModel)]="newEtat" class="form-control" placeholder="Nouvel état" />
+      </div>
+      <div class="modal-footer">
+        <button (click)="saveEtat()" class="btn btn-success">Enregistrer</button>
+        <button (click)="closeModal()" class="btn btn-secondary">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>

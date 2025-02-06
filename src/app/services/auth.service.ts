@@ -1,27 +1,48 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private isAuthenticated = new BehaviorSubject<boolean>(this.hasToken());
+  isLoggedIn$ = this.isAuthenticated.asObservable(); // Observable pour écouter les changements
 
   constructor() {}
 
-  // Vérifie si un utilisateur est connecté
+  // Vérifie si un token existe
+  private hasToken(): boolean {
+    return !!localStorage.getItem('authToken');
+  }
+
+  // Vérifie si l'utilisateur est connecté
   isLoggedIn(): boolean {
-    const token = localStorage.getItem('authToken');
-    return !!token; // Retourne vrai si un token existe
+    return this.hasToken();
   }
 
   // Vérifie si l'utilisateur a un rôle admin
   isAdmin(): boolean {
-    const role = localStorage.getItem('role'); // Stocke le rôle dans le localStorage
-    return role === 'admin'; // Remplacez 'admin' par la valeur utilisée pour représenter un admin
+    const role = localStorage.getItem('role');
+    return role === 'admin';
   }
 
-  // Déconnecte l'utilisateur
+  // Connexion : stocke le token et met à jour l'état
+  login(token: string, role: string) {
+    localStorage.setItem('authToken', token);
+    localStorage.setItem('role', role);
+    this.isAuthenticated.next(true); // ⚡ Notifie que l'utilisateur est connecté
+  }
+
+  // Déconnexion : supprime les données et met à jour l'état
   logout(): void {
     localStorage.removeItem('authToken');
-    localStorage.removeItem('role'); // Si vous stockez aussi le rôle
+    localStorage.removeItem('role');
+    this.isAuthenticated.next(false); // ⚡ Notifie que l'utilisateur est déconnecté
+  }
+
+  // 🚀 Nouvelle méthode pour forcer la mise à jour après redirection
+  checkLoginStatus() {
+    const loggedIn = this.hasToken();
+    this.isAuthenticated.next(loggedIn);
   }
 }

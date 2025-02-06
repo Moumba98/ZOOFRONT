@@ -1,4 +1,17 @@
-<div class="app-container d-flex flex-column min-vh-100">
+<header class="fixed-top shadow-sm">
+  <div>
+    <a href="#" class="navbar-brand">ZOO Arcadi</a>
+    <div class="menu-links">
+      <a routerLink="/lien-service" class="btn btn-primary mx-2">Nos services</a>
+      <a routerLink="/lien-animaux" class="btn btn-primary mx-2">Nos animaux</a>
+      <a routerLink="/lien-avis" class="btn btn-primary mx-2">Votre avis</a>
+      <a routerLink="/lien-contact" class="btn btn-primary">Nous contacter</a>
+      <a routerLink="/login" class="btn btn-primary">Connexion</a>
+    </div>
+  </div>
+</header>
+
+<div class="app-container d-flex flex-column">
 
   <!-- Navbar pour l'accès au CRUD, visible après connexion -->
   <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="isAuthenticated()">
@@ -94,12 +107,22 @@
         </div>
       </li>
 
+      <li class="nav-item dropdown">
+        <a routerLink="contact" class="nav-link dropdown-toggle" href="#" id="navbarDropdownService" service="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Contact
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownService">
+          <a routerLink="add-contact" class="dropdown-item" href="#">Ajouter Contact</a>
+        </div>
+      </li>
+
       <!-- Logout -->
       <li class="nav-item">
         <a class="nav-link" href="#" (click)="logout()">Logout</a>
       </li>
     </div>
   </nav>
+
 
   <!-- Page d'accueil vide, avec juste le lien de connexion visible
   <div>
@@ -120,3 +143,4 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+

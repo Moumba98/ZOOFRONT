@@ -34,6 +34,9 @@ import { LienContactComponent } from './lien-contact/lien-contact.component';
 import { LienAvisComponent } from './lien-avis/lien-avis.component';
 import { AddNoticeComponent } from './components/add-notice/add-notice.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { AddContactComponent } from './add-contact/add-contact.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
 
 const routes: Routes = [
 
@@ -42,9 +45,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'accueil', component: AccueilComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'lien-animaux', component: LienAnimauxComponent },
+  { path: 'lien-animaux', component: LienAnimauxComponent, },
   { path: 'lien-service', component: LienServiceComponent },
-  { path: 'lien-contact', component: LienContactComponent },
+  { path: 'lien-contact', component: AddContactComponent },
+  { path: 'lien-avis', component: AddNoticeComponent },
 
 
   // Route protégée (requiert une connexion)
@@ -62,7 +66,7 @@ const routes: Routes = [
 
   // Routes protégées pour les rapports vétérinaires
   { path: 'Veterinary_raport', component: VeterinaryRaportListComponent, canActivate: [authGuard] },
-  { path: 'Veterinary_raport/:raport_id', component: VeterinaryRaportDetailsComponent, canActivate: [authGuard] },
+  { path: 'Veterinary_raport/:veterinary_report_id', component: VeterinaryRaportDetailsComponent, canActivate: [authGuard] },
   { path: 'add-raport', component: AddVeterinaryRaportComponent, canActivate: [authGuard] },
 
   // Routes protégées pour les animaux
@@ -86,14 +90,20 @@ const routes: Routes = [
   { path: 'add-service', component: AddServiceComponent, canActivate: [authGuard] },
 
   // Routes protégées pour les notices
-  { path: 'lien-avis', component: NoticeListComponent, canActivate: [authGuard] },
+  { path: 'notice', component: NoticeListComponent, canActivate: [authGuard] },
   { path: 'notice/:notice_id', component: NoticeDetailsComponent, canActivate: [authGuard] },
-  { path: 'lien-avis', component: AddNoticeComponent, canActivate: [authGuard] },
+  { path: 'add-notice', component: AddNoticeComponent, canActivate: [authGuard] },
 
   // Routes protégées pour les images
   { path: 'picture', component: PictureListComponent, canActivate: [authGuard] },
   { path: 'picture/:picture_id', component: PictureDetailsComponent, canActivate: [authGuard] },
   { path: 'add-picture', component: AddServiceComponent, canActivate: [authGuard] },
+
+  // Routes protégées pour les contact
+  { path: 'contact', component: ContactListComponent, canActivate: [authGuard] },
+  { path: 'contact/:contact_id', component: ContactDetailsComponent, canActivate: [authGuard] },
+  { path: 'add-contact', component: AddContactComponent, canActivate: [authGuard] },
+
 
 /* { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },

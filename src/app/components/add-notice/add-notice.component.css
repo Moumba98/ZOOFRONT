@@ -1,0 +1,73 @@
+.text-container {
+  background-color: rgba(0, 0, 0, 0.7); /* Fond sombre */
+  border-radius: 10px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  width: 50%; /* Réduit la largeur du formulaire à 50% de la page */
+  max-width: 600px; /* Limite la largeur à 600px même sur écrans larges */
+  margin: 50px auto; /* Centré horizontalement et un espace en haut */
+  text-align: center; /* Centre le texte dans le formulaire */
+  color: white; /* Texte blanc */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Espacement entre les champs */
+  text-align: left; /* Alignement des labels à gauche */
+}
+
+label {
+  display: block; /* Les labels sont affichés sur une nouvelle ligne */
+  margin-bottom: 8px; /* Espacement sous le label */
+  font-size: 16px; /* Taille de police */
+  color: rgba(255, 255, 255, 0.9); /* Couleur du texte */
+}
+
+input, textarea, button {
+  background-color: rgba(0, 0, 0, 0.7); /* Fond sombre */
+  color: white; /* Texte blanc */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Bordure légèrement blanche */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px; /* Espacement interne */
+  font-size: 16px; /* Taille de texte */
+  width: 100%; /* Champ de saisie prend toute la largeur disponible */
+  box-sizing: border-box; /* Inclure padding et border dans la largeur */
+}
+
+input:focus, textarea:focus {
+  background-color: rgba(0, 0, 0, 0.7); /* Conserve le fond sombre au focus */
+  color: white; /* Texte toujours blanc */
+  border: 1px solid rgba(255, 255, 255, 0.8); /* Bordure un peu plus visible */
+  outline: none; /* Retire le contour par défaut du navigateur */
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5); /* Couleur des placeholders */
+}
+
+button {
+  background-color: #28a745; /* Couleur verte */
+  color: white; /* Texte blanc */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement interne */
+  cursor: pointer; /* Curseur pointeur */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 16px; /* Taille de police */
+}
+
+button:hover {
+  background-color: #218838; /* Couleur plus sombre au survol */
+}
+
+.menu-links {
+  display: flex;
+  justify-content: flex-end; /* Aligne les éléments à droite */
+  gap: 100px; /* Ajoute un espacement entre les liens */
+}
+
+.menu-links a {
+  text-align: center; /* Centrer le texte dans chaque bouton */
+}
+
+.menu-links a {
+  margin-right: 10px;
+}

@@ -1,5 +1,5 @@
 .app-container {
-  background-image: url('images/MHD-IMG.jpg');
+  background-image: url('images/mhd.jpg');
   background-size: 100%; /* Taille initiale */
   background-position: top center;
   background-repeat: no-repeat;
@@ -35,5 +35,27 @@
   text-align: center; /* Centrer le texte dans chaque bouton */
 }
 
+.menu-links a {
+  margin-right: 10px;
+}
 
 
+header.fixed-top {
+  z-index: 1030; /* Assure que le header reste au-dessus */
+}
+
+nav.navbar {
+  z-index: 1029; /* Met la barre de navigation juste en dessous du header */
+}
+
+.app-container {
+  padding-top: calc(70px + 56px); /* Calcule l'espace pour le header (70px) et la navbar (56px) */
+}
+
+header.fixed-top {
+  height: 70px; /* Hauteur du header */
+}
+
+nav.navbar {
+  height: 56px; /* Hauteur de la barre de navigation */
+}
